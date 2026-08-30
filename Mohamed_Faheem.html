@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohamed Faheem S B | Interactive GitHub Portfolio & Resume</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre, .font-mono { font-family: 'Fira Code', monospace; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    .active-tab {
+      background-color: rgba(59, 130, 246, 0.2);
+      border-color: rgba(59, 130, 246, 0.8);
+      color: #60a5fa;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased min-h-screen p-4 sm:p-8">
+
+  <div class="max-w-6xl mx-auto space-y-8">
+
+    <!-- Top Profile Header -->
+    <header class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-md relative overflow-hidden">
+      <div class="absolute -top-32 -right-32 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-32 -left-32 w-80 h-80 bg-emerald-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
+        <div class="flex items-center gap-5 sm:gap-7">
+          <div class="relative">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-blue-600 via-indigo-600 to-emerald-500 flex items-center justify-center text-white font-extrabold text-3xl shadow-xl border-2 border-white/10">
+              MF
+            </div>
+            <span class="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 border-4 border-slate-900 rounded-full" title="Open to Opportunities"></span>
+          </div>
+          <div>
+            <div class="flex items-center gap-3 flex-wrap">
+              <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">MOHAMED FAHEEM S B</h1>
+              <span class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">
+                GitHub Portfolio v2.0
+              </span>
+            </div>
+            <p id="header-subtitle" class="text-base sm:text-lg text-blue-400 font-semibold mt-1">
+              Aspiring AI/ML Engineer
+            </p>
+            <div class="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs sm:text-sm text-slate-400 mt-2 font-medium">
+              <span class="flex items-center gap-1.5">📍 Chennai, Tamil Nadu, India</span>
+              <span class="flex items-center gap-1.5">🎓 B.Tech AI & DS (2023-2027)</span>
+              <span class="flex items-center gap-1.5">📊 CGPA: 8.36</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 flex-wrap w-full md:w-auto">
+          <a href="mailto:mohamedxfaheem.fhm@gmail.com" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 transition text-xs font-medium border border-slate-700 flex items-center gap-2">
+            ✉️ Email
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white transition text-xs font-medium shadow-lg flex items-center gap-2">
+            💼 LinkedIn
+          </a>
+          <a href="https://github.com" target="_blank" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white transition text-xs font-medium border border-slate-700 flex items-center gap-2">
+            🐙 GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
+          <span>🎯 Select Persona:</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
+          <button onclick="switchRole('aiml')" id="btn-aiml" class="role-btn px-4 py-2 text-xs font-semibold rounded-xl border border-slate-700 text-slate-300 hover:border-blue-500 transition active-tab">
+            🤖 AI / ML Engineer
+          </button>
+          <button onclick="switchRole('da')" id="btn-da" class="role-btn px-4 py-2 text-xs font-semibold rounded-xl border border-slate-700 text-slate-300 hover:border-blue-500 transition">
+            📈 Data Analyst Intern
+          </button>
+          <button onclick="switchRole('swe')" id="btn-swe" class="role-btn px-4 py-2 text-xs font-semibold rounded-xl border border-slate-700 text-slate-300 hover:border-blue-500 transition">
+            💻 Software Developer
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-2">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xs font-extrabold uppercase tracking-widest text-blue-400 flex items-center gap-2">
+          <span>🚀 Objective</span>
+        </h2>
+        <span id="role-badge-pill" class="text-[10px] px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 font-bold border border-blue-500/30">
+          AI/ML Mode
+        </span>
+      </div>
+      <p id="objective-text" class="text-sm sm:text-base leading-relaxed text-slate-200 font-normal">
+        Aspiring AI & Machine Learning Engineer with hands-on experience in Machine Learning, Deep Learning, NLP, and Computer Vision. Seeking an entry-level AI/ML Engineer role to develop and deploy intelligent, data-driven AI solutions.
+      </p>
+    </section>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-2 bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-5">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            🛠️ Technical Skills & Stack
+          </h3>
+          <div class="flex items-center gap-1.5 text-xs">
+            <button onclick="filterSkills('all')" class="skill-cat-btn px-3 py-1 rounded-xl bg-blue-600 text-white font-medium">All</button>
+            <button onclick="filterSkills('mldl')" class="skill-cat-btn px-3 py-1 rounded-xl bg-slate-800 text-slate-400 hover:text-white">AI & ML</button>
+            <button onclick="filterSkills('bi')" class="skill-cat-btn px-3 py-1 rounded-xl bg-slate-800 text-slate-400 hover:text-white">Data & BI</button>
+            <button onclick="filterSkills('dev')" class="skill-cat-btn px-3 py-1 rounded-xl bg-slate-800 text-slate-400 hover:text-white">Dev & DB</button>
+          </div>
+        </div>
+
+        <div id="skills-container" class="flex flex-wrap gap-2.5"></div>
+      </div>
+
+      <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-6">
+        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+          💼 Experience & Education
+        </h3>
+        <div class="space-y-5 text-xs">
+          <div class="border-l-2 border-blue-500 pl-4 space-y-1">
+            <div class="font-bold text-sm text-white">Data Analytics Intern</div>
+            <div class="text-blue-400 font-semibold">Novitech R&D Pvt Ltd • Sep 2024 - Nov 2024</div>
+            <p class="text-slate-400 leading-relaxed">Built Power BI & Tableau dashboards, automated reports using Python & SQL for business insights.</p>
+          </div>
+
+          <div class="border-l-2 border-emerald-500 pl-4 space-y-1">
+            <div class="font-bold text-sm text-white">Data Science Intern</div>
+            <div class="text-emerald-400 font-semibold">NSIC Technical Service Centre • Jan 2025</div>
+            <p class="text-slate-400 leading-relaxed">Hands-on analytics, visualization, and real-world problem-solving workflows.</p>
+          </div>
+
+          <div class="border-l-2 border-purple-500 pl-4 space-y-1">
+            <div class="font-bold text-sm text-white">B.Tech in AI & Data Science</div>
+            <div class="text-purple-400 font-semibold">Dhaanish Chennai College of Eng. • 2023 - 2027</div>
+            <p class="text-slate-400">CGPA: <strong class="text-white">8.36</strong> (till 5th sem)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-6">
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <div>
+          <h3 class="text-xl font-bold text-white flex items-center gap-2">
+            🚀 Featured Projects Showcase
+          </h3>
+          <p class="text-xs text-slate-400 mt-1">Dynamic project highlights tailored to active persona</p>
+        </div>
+        <span class="text-xs text-emerald-400 font-bold bg-emerald-500/10 px-3.5 py-1.5 rounded-full border border-emerald-500/20">
+          🟢 Live Projects Ready
+        </span>
+      </div>
+
+      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </section>
+
+    <section class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+        <div class="flex items-center gap-4">
+          <button onclick="showTab('cli')" id="tab-cli" class="text-sm font-bold text-blue-400 border-b-2 border-blue-500 pb-2 px-1">
+            💻 Recruiter CLI Terminal
+          </button>
+          <button onclick="showTab('readme')" id="tab-readme" class="text-sm font-medium text-slate-400 hover:text-white pb-2 px-1">
+            📝 GitHub README Generator
+          </button>
+          <button onclick="showTab('certs')" id="tab-certs" class="text-sm font-medium text-slate-400 hover:text-white pb-2 px-1">
+            🏆 Certifications
+          </button>
+        </div>
+      </div>
+
+      <div id="view-cli" class="space-y-4">
+        <div class="bg-slate-950 text-emerald-400 p-5 rounded-2xl font-mono text-xs shadow-inner h-64 overflow-y-auto border border-slate-800/80 space-y-2" id="terminal-screen">
+          <div class="text-slate-400">Mohamed Faheem S B [Portfolio CLI Shell v2.0]</div>
+          <div class="text-slate-500">Type 'help' for commands. Active persona: <span id="cli-role-label" class="text-blue-400 font-bold">aiml</span></div>
+          <div class="text-emerald-500">$ portfolio --status</div>
+          <div class="text-slate-300">Ready. CGPA: 8.36 | 6 Projects | 5 Industry Certifications</div>
+        </div>
+
+        <form onsubmit="handleCliCommand(event)" class="flex gap-3">
+          <span class="text-sm font-mono text-emerald-400 self-center pl-2">$</span>
+          <input type="text" id="cli-input" placeholder="Type command ('help', 'skills', 'projects', 'switch da')..." class="flex-1 bg-slate-950 text-white border border-slate-800 rounded-xl px-4 py-2.5 text-xs font-mono focus:outline-none focus:border-blue-500">
+          <button type="submit" class="px-5 py-2.5 bg-blue-600 text-white rounded-xl text-xs font-semibold hover:bg-blue-500 transition">Execute</button>
+        </form>
+      </div>
+
+      <div id="view-readme" class="hidden space-y-4">
+        <div class="flex items-center justify-between">
+          <p class="text-xs text-slate-400">Generated GitHub Profile README markdown code for <code class="bg-slate-950 px-2 py-0.5 rounded text-blue-300">mohamedxfaheem/mohamedxfaheem</code>.</p>
+          <button onclick="copyReadmeMarkdown()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-semibold transition flex items-center gap-2">
+            📋 Copy Markdown
+          </button>
+        </div>
+        <pre class="bg-slate-950 text-slate-300 p-5 rounded-2xl font-mono text-xs overflow-x-auto border border-slate-800 h-64 select-all" id="readme-markdown-box"></pre>
+      </div>
+
+      <div id="view-certs" class="hidden space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" id="certs-container"></div>
+      </div>
+    </section>
+
+    <footer class="text-center text-xs text-slate-500 py-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div>Mohamed Faheem S B • Interactive GitHub Portfolio</div>
+      <div>Chennai, India • mohamedxfaheem.fhm@gmail.com</div>
+    </footer>
+  </div>
+
+  <script>
+    const profileData = {
+      aiml: {
+        title: "Aspiring AI/ML Engineer",
+        badge: "AI/ML Mode",
+        objective: "Aspiring AI & Machine Learning Engineer with hands-on experience in Machine Learning, Deep Learning, NLP, and Computer Vision. Seeking an entry-level AI/ML Engineer role to develop and deploy intelligent, data-driven AI solutions.",
+        skills: [
+          { name: "Python", cat: "dev", level: "Advanced" },
+          { name: "SQL", cat: "dev", level: "Intermediate" },
+          { name: "Supervised Learning", cat: "mldl", level: "Advanced" },
+          { name: "Unsupervised Learning", cat: "mldl", level: "Advanced" },
+          { name: "Deep Learning (ANN/CNN/RNN/LSTM)", cat: "mldl", level: "Advanced" },
+          { name: "Scikit-learn", cat: "mldl", level: "Advanced" },
+          { name: "TensorFlow & Keras", cat: "mldl", level: "Advanced" },
+          { name: "OpenCV & Computer Vision", cat: "mldl", level: "Intermediate" },
+          { name: "NLP & Feature Engineering", cat: "mldl", level: "Advanced" },
+          { name: "Pandas & NumPy", cat: "bi", level: "Advanced" },
+          { name: "Power BI & Tableau", cat: "bi", level: "Advanced" },
+          { name: "Flask & Streamlit", cat: "dev", level: "Intermediate" },
+          { name: "MySQL", cat: "dev", level: "Intermediate" },
+          { name: "Git & GitHub", cat: "dev", level: "Advanced" }
+        ],
+        projects: [
+          {
+            title: "AI Medical Diagnosis Assistant",
+            desc: "Pneumonia detection from chest X-ray images using EfficientNetB0 deep learning model. Real-time predictions, confidence scores, and AI recommendations via Flask.",
+            tags: ["EfficientNetB0", "Deep Learning", "Flask", "Computer Vision"],
+            live: true
+          },
+          {
+            title: "AI Resume Analyzer",
+            desc: "NLP application evaluating resumes against job descriptions to compute ATS scores, extract key skills, suggest improvements, and generate PDF reports.",
+            tags: ["NLP", "Python", "ATS Scoring", "Flask"],
+            live: true
+          },
+          {
+            title: "AI-Powered Personal Fitness Coach",
+            desc: "Fitness application featuring a Gemini-powered chatbot, ExerciseDB API, personalized workout & diet plans, and BMI/BMR calculators.",
+            tags: ["Gemini AI", "ExerciseDB", "Flask", "Python"],
+            live: true
+          }
+        ],
+        certs: [
+          { name: "Deep Learning", org: "IBM" },
+          { name: "Machine Learning", org: "NPTEL" },
+          { name: "Artificial Intelligence For All", org: "Infosys" },
+          { name: "Data Analytics Certification", org: "NoviTech" },
+          { name: "Power BI", org: "Simplilearn" }
+        ]
+      },
+      da: {
+        title: "Data Analyst Intern",
+        badge: "Data Analyst Mode",
+        objective: "Aspiring Data Analyst with a strong foundation in Python, SQL, Excel, and Power BI. Skilled in data cleaning, exploratory data analysis, dashboard development, and data visualization. Passionate about transforming data into actionable insights.",
+        skills: [
+          { name: "Power BI & DAX", cat: "bi", level: "Advanced" },
+          { name: "Tableau", cat: "bi", level: "Intermediate" },
+          { name: "Excel & Power Query", cat: "bi", level: "Advanced" },
+          { name: "SQL & MySQL", cat: "dev", level: "Advanced" },
+          { name: "Python", cat: "dev", level: "Advanced" },
+          { name: "Pandas & NumPy", cat: "bi", level: "Advanced" },
+          { name: "Exploratory Data Analysis (EDA)", cat: "bi", level: "Advanced" },
+          { name: "Statistical Analysis", cat: "bi", level: "Intermediate" },
+          { name: "Data Visualization & Matplotlib", cat: "bi", level: "Advanced" },
+          { name: "Scikit-learn", cat: "mldl", level: "Intermediate" },
+          { name: "Git & GitHub", cat: "dev", level: "Advanced" }
+        ],
+        projects: [
+          {
+            title: "Smart Energy Consumption Dashboard",
+            desc: "Interactive Power BI dashboard analyzing cleaned energy consumption data with KPI-driven visualizations to identify peak usage trends.",
+            tags: ["Power BI", "DAX", "Data Analysis", "KPIs"],
+            live: true
+          },
+          {
+            title: "Employee Performance Dashboard",
+            desc: "HR analytics dashboard featuring comparison charts and performance KPIs to track top performers across organizational departments.",
+            tags: ["HR Analytics", "Power BI", "Data Cleaning", "Tableau"],
+            live: true
+          },
+          {
+            title: "Super Store Sales Dashboard",
+            desc: "Sales analytics solution with dynamic filters tracking revenue, regional profit, and sales trends across product lines.",
+            tags: ["Sales Analytics", "Power BI", "Excel", "SQL"],
+            live: true
+          }
+        ],
+        certs: [
+          { name: "Data Analytics Certification", org: "NoviTech" },
+          { name: "Power BI", org: "Simplilearn" },
+          { name: "Machine Learning", org: "NPTEL" },
+          { name: "Big Data Computing (Hadoop, Spark)", org: "NPTEL" },
+          { name: "Deep Learning", org: "IBM" }
+        ]
+      },
+      swe: {
+        title: "Aspiring Software Developer",
+        badge: "Software Dev Mode",
+        objective: "Aspiring Software Engineer with a strong foundation in Artificial Intelligence, Machine Learning, and Python. Passionate about building scalable software and intelligent web applications while contributing to innovative tech solutions.",
+        skills: [
+          { name: "Python", cat: "dev", level: "Advanced" },
+          { name: "SQL & MySQL", cat: "dev", level: "Intermediate" },
+          { name: "OOP Principles", cat: "dev", level: "Advanced" },
+          { name: "Data Structures & Algorithms", cat: "dev", level: "Intermediate" },
+          { name: "REST APIs", cat: "dev", level: "Intermediate" },
+          { name: "HTML, CSS & JavaScript", cat: "dev", level: "Intermediate" },
+          { name: "Flask & Streamlit", cat: "dev", level: "Advanced" },
+          { name: "Git & GitHub", cat: "dev", level: "Advanced" },
+          { name: "Scikit-learn & Machine Learning", cat: "mldl", level: "Intermediate" },
+          { name: "Pandas & NumPy", cat: "bi", level: "Advanced" },
+          { name: "VS Code & PyCharm", cat: "dev", level: "Advanced" }
+        ],
+        projects: [
+          {
+            title: "AI Medical Diagnosis Assistant",
+            desc: "Web application detecting pneumonia from chest X-rays using EfficientNetB0, Flask backend, and structured medical advice UI.",
+            tags: ["Flask", "Python", "REST API", "Deep Learning"],
+            live: true
+          },
+          {
+            title: "AI Resume Analyzer",
+            desc: "Full-stack NLP resume parser calculating ATS matching scores, extracting candidate skills, and outputting PDF summaries.",
+            tags: ["Python", "Flask", "NLP", "Software Engineering"],
+            live: true
+          },
+          {
+            title: "AI-Powered Personal Fitness Coach",
+            desc: "Web application integrating Gemini AI and ExerciseDB APIs to deliver personalized workout routines, diet plans, and authentication.",
+            tags: ["Flask", "Gemini API", "ExerciseDB", "Python"],
+            live: true
+          }
+        ],
+        certs: [
+          { name: "Deep Learning", org: "IBM" },
+          { name: "Machine Learning", org: "NPTEL" },
+          { name: "Artificial Intelligence For All", org: "Infosys" },
+          { name: "Data Analytics Certification", org: "NoviTech" },
+          { name: "Power BI", org: "Simplilearn" }
+        ]
+      }
+    };
+
+    let currentRole = "aiml";
+    let currentSkillCat = "all";
+
+    function switchRole(role) {
+      currentRole = role;
+      document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active-tab'));
+      document.getElementById(`btn-${role}`).classList.add('active-tab');
+
+      const data = profileData[role];
+      document.getElementById('header-subtitle').innerText = data.title;
+      document.getElementById('objective-text').innerText = data.objective;
+      document.getElementById('role-badge-pill').innerText = data.badge;
+      document.getElementById('cli-role-label').innerText = role;
+
+      renderSkills();
+      renderProjects();
+      renderCerts();
+      updateReadmeMarkdown();
+      appendCliLog(`Switched persona to: ${data.title}`);
+    }
+
+    function renderSkills() {
+      const container = document.getElementById('skills-container');
+      container.innerHTML = '';
+      const skills = profileData[currentRole].skills;
+      const filtered = currentSkillCat === 'all' ? skills : skills.filter(s => s.cat === currentSkillCat);
+
+      filtered.forEach(s => {
+        const chip = document.createElement('div');
+        chip.className = 'px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between gap-3 text-xs shadow-sm';
+        chip.innerHTML = `
+          <span class="font-medium text-slate-200">${s.name}</span>
+          <span class="text-[10px] px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 font-bold">${s.level}</span>
+        `;
+        container.appendChild(chip);
+      });
+    }
+
+    function filterSkills(cat) {
+      currentSkillCat = cat;
+      document.querySelectorAll('.skill-cat-btn').forEach(btn => {
+        btn.classList.remove('bg-blue-600', 'text-white');
+        btn.classList.add('bg-slate-800', 'text-slate-400');
+      });
+      event.target.classList.remove('bg-slate-800', 'text-slate-400');
+      event.target.classList.add('bg-blue-600', 'text-white');
+      renderSkills();
+    }
+
+    function renderProjects() {
+      const grid = document.getElementById('projects-grid');
+      grid.innerHTML = '';
+      const projects = profileData[currentRole].projects;
+
+      projects.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'bg-slate-950 border border-slate-800/80 rounded-2xl p-5 flex flex-col justify-between hover:border-blue-500/50 transition group shadow-lg';
+        let tagsHtml = p.tags.map(t => `<span class="text-[10px] px-2.5 py-0.5 rounded-md bg-blue-500/10 text-blue-300 font-medium">${t}</span>`).join(' ');
+
+        card.innerHTML = `
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-sm text-white group-hover:text-blue-400 transition">${p.title}</h4>
+              <span class="text-[10px] font-bold text-emerald-400 flex items-center gap-1">🟢 Live</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">${p.desc}</p>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-slate-900 space-y-3">
+            <div class="flex flex-wrap gap-1.5">${tagsHtml}</div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function renderCerts() {
+      const container = document.getElementById('certs-container');
+      container.innerHTML = '';
+      const certs = profileData[currentRole].certs;
+
+      certs.forEach(c => {
+        const item = document.createElement('div');
+        item.className = 'p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3.5 shadow-md';
+        item.innerHTML = `
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-sm">
+            🎓
+          </div>
+          <div>
+            <div class="text-xs font-bold text-white">${c.name}</div>
+            <div class="text-[11px] text-blue-400 font-medium">${c.org}</div>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function showTab(tab) {
+      ['cli', 'readme', 'certs'].forEach(t => {
+        document.getElementById(`view-${t}`).classList.add('hidden');
+        const tabBtn = document.getElementById(`tab-${t}`);
+        tabBtn.classList.remove('text-blue-400', 'border-b-2', 'border-blue-500', 'font-bold');
+        tabBtn.classList.add('text-slate-400', 'font-medium');
+      });
+
+      document.getElementById(`view-${tab}`).classList.remove('hidden');
+      const activeBtn = document.getElementById(`tab-${tab}`);
+      activeBtn.classList.remove('text-slate-400');
+      activeBtn.classList.add('text-blue-400', 'border-b-2', 'border-blue-500', 'font-bold');
+    }
+
+    function handleCliCommand(e) {
+      e.preventDefault();
+      const input = document.getElementById('cli-input');
+      const cmd = input.value.trim().toLowerCase();
+      if (!cmd) return;
+
+      appendCliLog(`$ ${cmd}`, 'text-emerald-400 font-bold');
+
+      if (cmd === 'help') {
+        appendCliLog("Commands: help, skills, projects, certs, switch aiml|da|swe, clear", 'text-slate-300');
+      } else if (cmd === 'skills') {
+        const skList = profileData[currentRole].skills.map(s => ` • ${s.name} (${s.level})`).join('\n');
+        appendCliLog(`Skills (${profileData[currentRole].title}):\n${skList}`, 'text-blue-300');
+      } else if (cmd === 'projects') {
+        const prjList = profileData[currentRole].projects.map(p => ` • ${p.title}: ${p.desc}`).join('\n');
+        appendCliLog(`Projects:\n${prjList}`, 'text-emerald-300');
+      } else if (cmd === 'certs') {
+        const certList = profileData[currentRole].certs.map(c => ` • ${c.name} (${c.org})`).join('\n');
+        appendCliLog(`Certifications:\n${certList}`, 'text-purple-300');
+      } else if (cmd.startsWith('switch')) {
+        const parts = cmd.split(' ');
+        if (parts[1] && ['aiml', 'da', 'swe'].includes(parts[1])) {
+          switchRole(parts[1]);
+        } else {
+          appendCliLog("Usage: switch aiml | switch da | switch swe", 'text-red-400');
+        }
+      } else if (cmd === 'clear') {
+        document.getElementById('terminal-screen').innerHTML = '<div class="text-slate-500">Terminal cleared.</div>';
+      } else {
+        appendCliLog(`Command not recognized: '${cmd}'`, 'text-red-400');
+      }
+
+      input.value = '';
+    }
+
+    function appendCliLog(msg, colorClass = 'text-slate-300') {
+      const screen = document.getElementById('terminal-screen');
+      const line = document.createElement('div');
+      line.className = `${colorClass} whitespace-pre-wrap`;
+      line.innerText = msg;
+      screen.appendChild(line);
+      screen.scrollTop = screen.scrollHeight;
+    }
+
+    function updateReadmeMarkdown() {
+      const role = profileData[currentRole];
+      const markdown = `# Hi there 👋, I'm Mohamed Faheem S B! 
+
+### 🚀 ${role.title}
+📍 Chennai, Tamil Nadu, India | 🎓 B.Tech in AI & Data Science (CGPA: 8.36)
+
+---
+
+### 💡 Objective
+> ${role.objective}
+
+---
+
+### 🛠️ Technical Skill Set
+${role.skills.map(s => `\`${s.name}\``).join(' • ')}
+
+---
+
+### 🌟 Featured Projects
+${role.projects.map(p => `#### 🔗 ${p.title}
+* ${p.desc}
+* **Tech Stack:** ${p.tags.join(', ')}
+`).join('\n')}
+
+---
+
+### 🏆 Certifications
+${role.certs.map(c => `- **${c.name}** (${c.org})`).join('\n')}
+
+---
+
+### 📫 Connect With Me
+- 📧 Email: mohamedxfaheem.fhm@gmail.com
+- 💼 LinkedIn: [Mohamed Faheem S B](https://linkedin.com)
+- 🐙 GitHub: [mohamedxfaheem](https://github.com)
+`;
+      document.getElementById('readme-markdown-box').innerText = markdown;
+    }
+
+    function copyReadmeMarkdown() {
+      const text = document.getElementById('readme-markdown-box').innerText;
+      navigator.clipboard.writeText(text);
+      alert('GitHub Profile README copied to clipboard!');
+    }
+
+    switchRole('aiml');
+  </script>
+</body>
+</html>
