@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohamed Faheem S B | Interactive GitHub Portfolio & Resume</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre, .font-mono { font-family: 'Fira Code', monospace; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    .active-tab {
+      background-color: rgba(59, 130, 246, 0.2);
+      border-color: rgba(59, 130, 246, 0.8);
+      color: #60a5fa;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased min-h-screen p-4 sm:p-8">
+
+  <div class="max-w-6xl mx-auto space-y-8">
+
+    <!-- Top Profile Header -->
+    <header class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-md relative overflow-hidden">
+      <div class="absolute -top-32 -right-32 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-32 -left-32 w-80 h-80 bg-emerald-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
+        <div class="flex items-center gap-5 sm:gap-7">
+          <div class="relative">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-blue-600 via-indigo-600 to-emerald-500 flex items-center justify-center text-white font-extrabold text-3xl shadow-xl border-2 border-white/10">
+              MF
+            </div>
+            <span class="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 border-4 border-slate-900 rounded-full" title="Open to Opportunities"></span>
+          </div>
+          <div>
+            <div class="flex items-center gap-3 flex-wrap">
+              <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">MOHAMED FAHEEM S B</h1>
+              <span class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">
+                GitHub Portfolio v2.0
+              </span>
+            </div>
+            <p id="header-subtitle" class="text-base sm:text-lg text-blue-400 font-semibold mt-1">
+              Aspiring AI/ML Engineer
+            </p>
+            <div class="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs sm:text-sm text-slate-400 mt-2 font-medium">
+              <span class="flex items-center gap-1.5">📍 Chennai, Tamil Nadu, India</span>
+              <span class="flex items-center gap-1.5">🎓 B.Tech AI & DS (2023-2027)</span>
+              <span class="flex items-center gap-1.5">📊 CGPA: 8.36</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 flex-wrap w-full md:w-auto">
+          <a href="mailto:mohamedxfaheem.fhm@gmail.com" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 transition text-xs font-medium border border-slate-700 flex items-center gap-2">
+            ✉️ Email
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white transition text-xs font-medium shadow-lg flex items-center gap-2">
+            💼 LinkedIn
+          </a>
+          <a href="https://github.com" target="_blank" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white transition text-xs font-medium border border-slate-700 flex items-center gap-2">
+            🐙 GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
+          <span>🎯 Select Persona:</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
+          <button onclick="switchRole('aiml')" id="btn-aiml" class="role-btn px-4 py-2 text-xs font-semibold rounded-xl border border-slate-700 text-slate-300 hover:border-blue-500 transition active-tab">
+            🤖 AI / ML Engineer
+          </button>
+          <button onclick="switchRole('da')" id="btn-da" class="role-btn px-4 py-2 text-xs font-semibold rounded-xl border border-slate-700 text-slate-300 hover:border-blue-500 transition">
+            📈 Data Analyst Intern
+          </button>
+          <button onclick="switchRole('swe')" id="btn-swe" class="role-btn px-4 py-2 text-xs font-semibold rounded-xl border border-slate-700 text-slate-300 hover:border-blue-500 transition">
+            💻 Software Developer
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Objective Card -->
+    <section class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-2">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xs font-extrabold uppercase tracking-widest text-blue-400 flex items-center gap-2">
+          <span>🚀 Objective</span>
+        </h2>
+        <span id="role-badge-pill" class="text-[10px] px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 font-bold border border-blue-500/30">
+          AI/ML Mode
+        </span>
+      </div>
+      <p id="objective-text" class="text-sm sm:text-base leading-relaxed text-slate-200 font-normal">
+        Aspiring AI & Machine Learning Engineer with hands-on experience in Machine Learning, Deep Learning, NLP, and Computer Vision. Seeking an entry-level AI/ML Engineer role to develop and deploy intelligent, data-driven AI solutions.
+      </p>
+    </section>
+
+    <!-- Skills Explorer Section with Visual Logos -->
+    <section class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-6">
+      <div class="flex items-center justify-between flex-wrap gap-3">
+        <div>
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            🛠️ Technical Skill Logos & Badges
+          </h3>
+          <p class="text-xs text-slate-400 mt-1">Official technology logos filtered by domain</p>
+        </div>
+        <div class="flex items-center gap-1.5 text-xs">
+          <button onclick="filterSkills('all')" class="skill-cat-btn px-3 py-1 rounded-xl bg-blue-600 text-white font-medium">All</button>
+          <button onclick="filterSkills('mldl')" class="skill-cat-btn px-3 py-1 rounded-xl bg-slate-800 text-slate-400 hover:text-white">AI & ML</button>
+          <button onclick="filterSkills('bi')" class="skill-cat-btn px-3 py-1 rounded-xl bg-slate-800 text-slate-400 hover:text-white">Data & BI</button>
+          <button onclick="filterSkills('dev')" class="skill-cat-btn px-3 py-1 rounded-xl bg-slate-800 text-slate-400 hover:text-white">Dev & DB</button>
+        </div>
+      </div>
+
+      <div id="skills-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5">
+        <!-- Visual skill logo badges rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Experience & Education Grid -->
+    <section class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-6">
+      <h3 class="text-lg font-bold text-white flex items-center gap-2">
+        💼 Experience & Education
+      </h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+        <div class="border-l-2 border-blue-500 pl-4 space-y-1 bg-slate-950 p-4 rounded-2xl">
+          <div class="font-bold text-sm text-white">Data Analytics Intern</div>
+          <div class="text-blue-400 font-semibold">Novitech R&D Pvt Ltd • Sep 2024 - Nov 2024</div>
+          <p class="text-slate-400 leading-relaxed">Built Power BI & Tableau dashboards, automated reports using Python & SQL for business insights.</p>
+        </div>
+
+        <div class="border-l-2 border-emerald-500 pl-4 space-y-1 bg-slate-950 p-4 rounded-2xl">
+          <div class="font-bold text-sm text-white">Data Science Intern</div>
+          <div class="text-emerald-400 font-semibold">NSIC Technical Service Centre • Jan 2025</div>
+          <p class="text-slate-400 leading-relaxed">Hands-on analytics, visualization, and real-world problem-solving workflows.</p>
+        </div>
+
+        <div class="border-l-2 border-purple-500 pl-4 space-y-1 bg-slate-950 p-4 rounded-2xl">
+          <div class="font-bold text-sm text-white">B.Tech in AI & Data Science</div>
+          <div class="text-purple-400 font-semibold">Dhaanish Chennai College of Eng. • 2023 - 2027</div>
+          <p class="text-slate-400">CGPA: <strong class="text-white">8.36</strong> (till 5th sem)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Terminal CLI & README Exporter Tabs -->
+    <section class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+        <div class="flex items-center gap-4">
+          <button onclick="showTab('readme')" id="tab-readme" class="text-sm font-bold text-blue-400 border-b-2 border-blue-500 pb-2 px-1">
+            📝 GitHub README Generator
+          </button>
+          <button onclick="showTab('cli')" id="tab-cli" class="text-sm font-medium text-slate-400 hover:text-white pb-2 px-1">
+            💻 Recruiter CLI Terminal
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab 1: README Generator -->
+      <div id="view-readme" class="space-y-4">
+        <div class="flex items-center justify-between">
+          <p class="text-xs text-slate-400">Generated GitHub Profile README code for <code class="bg-slate-950 px-2 py-0.5 rounded text-blue-300">mohamedxfaheem/mohamedxfaheem</code> with logo badges.</p>
+          <button onclick="copyReadmeMarkdown()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-semibold transition flex items-center gap-2">
+            📋 Copy Markdown
+          </button>
+        </div>
+        <pre class="bg-slate-950 text-slate-300 p-5 rounded-2xl font-mono text-xs overflow-x-auto border border-slate-800 h-64 select-all" id="readme-markdown-box"></pre>
+      </div>
+
+      <!-- Tab 2: Terminal -->
+      <div id="view-cli" class="hidden space-y-4">
+        <div class="bg-slate-950 text-emerald-400 p-5 rounded-2xl font-mono text-xs shadow-inner h-64 overflow-y-auto border border-slate-800/80 space-y-2" id="terminal-screen">
+          <div class="text-slate-400">Mohamed Faheem S B [Portfolio CLI Shell v2.0]</div>
+          <div class="text-slate-500">Type 'help' for commands. Persona: <span id="cli-role-label" class="text-blue-400 font-bold">aiml</span></div>
+          <div class="text-emerald-500">$ portfolio --status</div>
+          <div class="text-slate-300">Ready. CGPA: 8.36 | Skill Logos Loaded</div>
+        </div>
+
+        <form onsubmit="handleCliCommand(event)" class="flex gap-3">
+          <span class="text-sm font-mono text-emerald-400 self-center pl-2">$</span>
+          <input type="text" id="cli-input" placeholder="Type command ('help', 'skills', 'switch da')..." class="flex-1 bg-slate-950 text-white border border-slate-800 rounded-xl px-4 py-2.5 text-xs font-mono focus:outline-none focus:border-blue-500">
+          <button type="submit" class="px-5 py-2.5 bg-blue-600 text-white rounded-xl text-xs font-semibold hover:bg-blue-500 transition">Execute</button>
+        </form>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    const profileData = {
+      aiml: {
+        title: "Aspiring AI/ML Engineer",
+        badge: "AI/ML Mode",
+        objective: "Aspiring AI & Machine Learning Engineer with hands-on experience in Machine Learning, Deep Learning, NLP, and Computer Vision. Seeking an entry-level AI/ML Engineer role to develop and deploy intelligent, data-driven AI solutions.",
+        skills: [
+          { name: "Python", cat: "dev", badge: "https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" },
+          { name: "MySQL", cat: "dev", badge: "https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" },
+          { name: "TensorFlow", cat: "mldl", badge: "https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" },
+          { name: "Keras", cat: "mldl", badge: "https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white" },
+          { name: "OpenCV", cat: "mldl", badge: "https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" },
+          { name: "Scikit-Learn", cat: "mldl", badge: "https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" },
+          { name: "Pandas", cat: "bi", badge: "https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" },
+          { name: "NumPy", cat: "bi", badge: "https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" },
+          { name: "Power BI", cat: "bi", badge: "https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black" },
+          { name: "Tableau", cat: "bi", badge: "https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=tableau&logoColor=white" },
+          { name: "Flask", cat: "dev", badge: "https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" },
+          { name: "Streamlit", cat: "dev", badge: "https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" },
+          { name: "Git", cat: "dev", badge: "https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" },
+          { name: "VS Code", cat: "dev", badge: "https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" }
+        ]
+      },
+      da: {
+        title: "Data Analyst Intern",
+        badge: "Data Analyst Mode",
+        objective: "Aspiring Data Analyst with a strong foundation in Python, SQL, Excel, and Power BI. Skilled in data cleaning, exploratory data analysis, dashboard development, and data visualization. Passionate about transforming data into actionable insights.",
+        skills: [
+          { name: "Power BI", cat: "bi", badge: "https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black" },
+          { name: "Tableau", cat: "bi", badge: "https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=tableau&logoColor=white" },
+          { name: "Excel", cat: "bi", badge: "https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white" },
+          { name: "MySQL", cat: "dev", badge: "https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" },
+          { name: "Python", cat: "dev", badge: "https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" },
+          { name: "Pandas", cat: "bi", badge: "https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" },
+          { name: "NumPy", cat: "bi", badge: "https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" },
+          { name: "Scikit-Learn", cat: "mldl", badge: "https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" },
+          { name: "Git", cat: "dev", badge: "https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" }
+        ]
+      },
+      swe: {
+        title: "Aspiring Software Developer",
+        badge: "Software Dev Mode",
+        objective: "Aspiring Software Engineer with a strong foundation in Artificial Intelligence, Machine Learning, and Python. Passionate about building scalable software and intelligent web applications while contributing to innovative tech solutions.",
+        skills: [
+          { name: "Python", cat: "dev", badge: "https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" },
+          { name: "MySQL", cat: "dev", badge: "https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" },
+          { name: "HTML5", cat: "dev", badge: "https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" },
+          { name: "CSS3", cat: "dev", badge: "https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" },
+          { name: "JavaScript", cat: "dev", badge: "https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" },
+          { name: "Flask", cat: "dev", badge: "https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" },
+          { name: "Streamlit", cat: "dev", badge: "https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" },
+          { name: "Git", cat: "dev", badge: "https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" },
+          { name: "VS Code", cat: "dev", badge: "https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" }
+        ]
+      }
+    };
+
+    let currentRole = "aiml";
+    let currentSkillCat = "all";
+
+    function switchRole(role) {
+      currentRole = role;
+      document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active-tab'));
+      document.getElementById(`btn-${role}`).classList.add('active-tab');
+
+      const data = profileData[role];
+      document.getElementById('header-subtitle').innerText = data.title;
+      document.getElementById('objective-text').innerText = data.objective;
+      document.getElementById('role-badge-pill').innerText = data.badge;
+      document.getElementById('cli-role-label').innerText = role;
+
+      renderSkills();
+      updateReadmeMarkdown();
+      appendCliLog(`Switched persona to: ${data.title}`);
+    }
+
+    function renderSkills() {
+      const container = document.getElementById('skills-container');
+      container.innerHTML = '';
+      const skills = profileData[currentRole].skills;
+      const filtered = currentSkillCat === 'all' ? skills : skills.filter(s => s.cat === currentSkillCat);
+
+      filtered.forEach(s => {
+        const card = document.createElement('div');
+        card.className = 'p-3 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col items-center justify-center gap-2 shadow-md hover:border-blue-500/50 transition';
+        card.innerHTML = `
+          <img src="${s.badge}" alt="${s.name}" class="h-7 max-w-full object-contain" />
+          <span class="text-[11px] font-semibold text-slate-300">${s.name}</span>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterSkills(cat) {
+      currentSkillCat = cat;
+      document.querySelectorAll('.skill-cat-btn').forEach(btn => {
+        btn.classList.remove('bg-blue-600', 'text-white');
+        btn.classList.add('bg-slate-800', 'text-slate-400');
+      });
+      event.target.classList.remove('bg-slate-800', 'text-slate-400');
+      event.target.classList.add('bg-blue-600', 'text-white');
+      renderSkills();
+    }
+
+    function showTab(tab) {
+      ['cli', 'readme'].forEach(t => {
+        document.getElementById(`view-${t}`).classList.add('hidden');
+        const tabBtn = document.getElementById(`tab-${t}`);
+        tabBtn.classList.remove('text-blue-400', 'border-b-2', 'border-blue-500', 'font-bold');
+        tabBtn.classList.add('text-slate-400', 'font-medium');
+      });
+
+      document.getElementById(`view-${tab}`).classList.remove('hidden');
+      const activeBtn = document.getElementById(`tab-${tab}`);
+      activeBtn.classList.remove('text-slate-400');
+      activeBtn.classList.add('text-blue-400', 'border-b-2', 'border-blue-500', 'font-bold');
+    }
+
+    function handleCliCommand(e) {
+      e.preventDefault();
+      const input = document.getElementById('cli-input');
+      const cmd = input.value.trim().toLowerCase();
+      if (!cmd) return;
+
+      appendCliLog(`$ ${cmd}`, 'text-emerald-400 font-bold');
+
+      if (cmd === 'help') {
+        appendCliLog("Commands: help, skills, switch aiml|da|swe, clear", 'text-slate-300');
+      } else if (cmd === 'skills') {
+        const skList = profileData[currentRole].skills.map(s => ` • ${s.name}`).join('\n');
+        appendCliLog(`Skills (${profileData[currentRole].title}):\n${skList}`, 'text-blue-300');
+      } else if (cmd.startsWith('switch')) {
+        const parts = cmd.split(' ');
+        if (parts[1] && ['aiml', 'da', 'swe'].includes(parts[1])) {
+          switchRole(parts[1]);
+        } else {
+          appendCliLog("Usage: switch aiml | switch da | switch swe", 'text-red-400');
+        }
+      } else if (cmd === 'clear') {
+        document.getElementById('terminal-screen').innerHTML = '<div class="text-slate-500">Terminal cleared.</div>';
+      } else {
+        appendCliLog(`Command not recognized: '${cmd}'`, 'text-red-400');
+      }
+
+      input.value = '';
+    }
+
+    function appendCliLog(msg, colorClass = 'text-slate-300') {
+      const screen = document.getElementById('terminal-screen');
+      const line = document.createElement('div');
+      line.className = `${colorClass} whitespace-pre-wrap`;
+      line.innerText = msg;
+      screen.appendChild(line);
+      screen.scrollTop = screen.scrollHeight;
+    }
+
+    function updateReadmeMarkdown() {
+      const role = profileData[currentRole];
+      const badgesHtml = role.skills.map(s => `<img src="${s.badge}" alt="${s.name}" />`).join('\n  ');
+
+      const markdown = `# Hi there 👋, I'm Mohamed Faheem S B! 
+
+<div align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=22&pause=1000&color=3B82F6&center=true&vCenter=true&width=600&lines=${encodeURIComponent(role.title)};B.Tech+AI+%26+Data+Science+(CGPA:+8.36)" alt="Typing SVG" />
+</div>
+
+<p align="center">
+  <b>📍 Chennai, Tamil Nadu, India</b> | 
+  <b>📧 mohamedxfaheem.fhm@gmail.com</b>
+</p>
+
+---
+
+### 💡 Objective
+> ${role.objective}
+
+---
+
+### 🛠️ Technical Skill Logos & Badges
+<p align="left">
+  ${badgesHtml}
+</p>
+`;
+      document.getElementById('readme-markdown-box').innerText = markdown;
+    }
+
+    function copyReadmeMarkdown() {
+      const text = document.getElementById('readme-markdown-box').innerText;
+      navigator.clipboard.writeText(text);
+      alert('GitHub Profile README copied to clipboard!');
+    }
+
+    switchRole('aiml');
+    showTab('readme');
+  </script>
+</body>
+</html>
